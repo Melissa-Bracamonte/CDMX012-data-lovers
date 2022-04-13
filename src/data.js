@@ -1,8 +1,4 @@
-import data from './data/athletes/athletes.js';
-
-// export const Athletes = () => {
-//   return data;
-// };
+import data from "./data/athletes/athletes.js";
 
 // Traer set de datos de Deportes
 export const sports = () => {
@@ -14,7 +10,7 @@ export const sports = () => {
     return arraySport.indexOf(item) === index;
   });
   return eraseDuplicate1;
-}
+};
 
 // Traer set de datos de Medallas
 export const medals = () => {
@@ -26,7 +22,7 @@ export const medals = () => {
     return arrayMedal.indexOf(item) === index;
   });
   return eraseDuplicate2;
-}
+};
 
 // Traer set de datos de Género
 export const gender = () => {
@@ -38,7 +34,7 @@ export const gender = () => {
     return arrayGender.indexOf(item) === index;
   });
   return eraseDuplicate3;
-}
+};
 
 // Traer set de datos de Países
 export const team = () => {
@@ -50,30 +46,30 @@ export const team = () => {
     return arrayTeam.indexOf(item) === index;
   });
   return eraseDuplicate4;
-}
+};
 
 //Función para ordenar las columnas de la tabla
- export const sortTableByColumn = (table, column, asc = true) => {
+export const sortTableByColumn = (table, column, asc = true) => {
   const sortCells = asc ? 1 : -1;
   const tBody = table.tBodies[0];
   const rows = Array.from(tBody.querySelectorAll("tr"));
 
   // ordenar por cada fila
   const sortedRows = rows.sort((a, b) => {
-    const aIterateNode = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
-    const bIterateNode = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
-      return aIterateNode > bIterateNode ? (1 * sortCells) : (-1 * sortCells);
+    const aIterateNode = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim(); //hijo cliqueado
+    const bIterateNode = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+    return aIterateNode > bIterateNode ? (1 * sortCells) : (-1 * sortCells);
+    
   });
- 
-  // remover la tabla existente
+  //console.log(sortCells);
+  // Remover la tabla existente
   while (tBody.firstChild) {
-      tBody.removeChild(tBody.firstChild);
+    tBody.removeChild(tBody.firstChild);
   }
-  // re agrega la nueva fila ordenada
+  // Agrega la nueva fila ordenada
   tBody.append(...sortedRows);
 
-  // recuerda como estaba ordenada la columna 
-  table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
-  table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
-  table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
-}
+  table.querySelectorAll("th").forEach((th) => th.classList.remove("th-sort-asc", "th-sort-desc")); //Borrar flecha
+  table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-asc", asc); //Agregar flechita
+  table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-sort-desc", !asc);
+};

@@ -12,6 +12,5 @@ export default function generatorTable() {
               </th>
             </thead>
             <tbody> </tbody>
-          </table>`
+          </table>`;
 }
-
