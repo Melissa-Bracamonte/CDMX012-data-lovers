@@ -5,9 +5,6 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const { document } = (new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)).window;
  
- 
- 
- 
 describe('sports', () => {
   it('debería ser una funcion', () => {
     expect(typeof sports).toBe('function');
@@ -91,13 +88,11 @@ describe('sortTableByColumn', () => {
                 <th>EDAD</th>
                 <th>PESO</th>
                 <th>ESTATURA</th>
-                </tr></thead>
+            </tr></thead>
             <tbody><tr><td>Athletics Men's 1,500 metres</td><td>Silver</td><td>Taoufik Makhloufi
-                </td><td>M</td><td>28</td><td>67</td><td>170</td></tr><tr><td>Athletics Men's 800 metres</td>
-                <td>Silver</td><td>Taoufik Makhloufi</td><td>M</td><td>28</td><td>67</td><td>170</td></tr>
-            </tbody>
- 
-       
+            </td><td>M</td><td>28</td><td>67</td><td>170</td></tr><tr><td>Athletics Men's 800 metres</td>
+            <td>Silver</td><td>Taoufik Makhloufi</td><td>M</td><td>28</td><td>67</td><td>170</td></tr>
+    </tbody>
   </table>`;
  
     const table = document.getElementById('tbOlimpics');
@@ -112,7 +107,9 @@ describe('sortTableByColumn', () => {
  
  
 describe('sortTableByColumn', () => {
- 
+  it('debería ser una funcion', () => {
+    expect(typeof sortTableByColumn).toBe('function');
+  });
   it('debería ordenar tabla por la primera columna "descendente"', () => {
    
     document.body.innerHTML =`
@@ -127,10 +124,10 @@ describe('sortTableByColumn', () => {
                 <th>PESO</th>
                 <th>ESTATURA</th>
             </tr></thead>
-            <tbody> <tr><td>Athletics Men's 800 metres</td><td>Silver</td><td>Taoufik Makhloufi</td>
-            <td>M</td><td>28</td><td>67</td><td>170</td></tr><tr><td>Athletics Men's 1,500 metres</td>
+            <tbody><tr><td>Athletics Men's 1,500 metres</td><td>Silver</td><td>Taoufik Makhloufi
+            </td><td>M</td><td>28</td><td>67</td><td>170</td></tr><tr><td>Athletics Men's 800 metres</td>
             <td>Silver</td><td>Taoufik Makhloufi</td><td>M</td><td>28</td><td>67</td><td>170</td></tr>
-            </tbody>
+    </tbody>
   </table>`;
  
     const table = document.getElementById('tbOlimpics');
